@@ -2,6 +2,16 @@
 
 This is a full-stack task management application built with the MERN stack (MongoDB, Express.js, React, Node.js) and Socket.IO for real-time updates.
 
+## Usage
+
+To test real-time notifications:
+
+1. Open the application in two different browsers or in incognito mode.
+2. Log in with two different user accounts.
+3. Users can assign tasks to themselves and lower-role team members
+4. Assign a task from one user account to the other.
+5. Observe that the assigned user receives a real-time notification.
+
 ## Features
 
 - User authentication (registration, login, logout)
