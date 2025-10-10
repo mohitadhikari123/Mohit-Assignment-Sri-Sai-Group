@@ -1,0 +1,126 @@
+.task-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.task-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.task-content {
+  padding: 20px;
+}
+
+.task-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #333333;
+}
+
+.task-description {
+  color: #555555;
+  margin: 0 0 15px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.task-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-todo {
+  background-color: #ffebed;
+  color: #e53935;
+  border: 1px solid #e53935;
+}
+
+.status-in-progress {
+  background-color: #fff3e0;
+  color: #fb8c00;
+  border: 1px solid #fb8c00;
+}
+
+.status-done {
+  background-color: #e8f5e9;
+  color: #43a047;
+  border: 1px solid #43a047;
+}
+
+.status-default {
+  background-color: #eceff1;
+  color: #546e7a;
+  border: 1px solid #546e7a;
+}
+
+.task-due-date {
+  font-size: 0.85rem;
+  color: #757575;
+  font-weight: 500;
+}
+
+.task-assignee {
+  font-size: 0.85rem;
+  color: #757575;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.task-button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.edit-button {
+  background-color: #2196f3;
+  color: white;
+  border: 1px solid #2196f3;
+}
+
+.edit-button:hover {
+  background-color: #1976d2;
+  border-color: #1976d2;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: 1px solid #f44336;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+  border-color: #d32f2f;
+  box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+}

@@ -1,0 +1,67 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px); /* Adjust based on navbar height */
+  text-align: center;
+  background: white; /* White background */
+  color: #333; /* Dark text for readability */
+  padding: 20px;
+}
+
+.homepage-title {
+  font-size: 3.5em;
+  color: #333; /* Dark text for readability */
+  margin-bottom: 20px;
+  text-shadow: none; /* Remove text shadow for white background */
+}
+
+.homepage-description {
+  font-size: 1.3em;
+  color: #555; /* Slightly lighter dark text */
+  margin-bottom: 40px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.homepage-actions {
+  display: flex;
+  gap: 25px;
+}
+
+.homepage-button {
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.homepage-button.primary {
+  background-color: #1976d2; /* Blue for primary action */
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.homepage-button.primary:hover {
+  background-color: #1565c0; /* Darker blue on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.homepage-button.secondary {
+  background-color: #f0f0f0; /* Light grey for secondary action */
+  color: #333; /* Dark text */
+  border: 2px solid #ccc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-button.secondary:hover {
+  background-color: #e0e0e0; /* Darker grey on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
