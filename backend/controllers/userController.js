@@ -9,6 +9,7 @@ export const getAllUsers = async (req, res) => {
     const users = await User.find({
       $or: [
         { _id: req.user._id }, // Include self
+        { role: req.user.role }, // Include same level roles
         { role: { $in: lowerRoles } }, // Include lower roles
       ],
     }).select('_id username email role');
