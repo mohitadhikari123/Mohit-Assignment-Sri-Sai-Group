@@ -11,6 +11,7 @@ import {
   selectFilteredTasks,
   setAssignedToMeFilter,
 } from '../redux/slices/tasksSlice';
+import { axiosInstance } from '../api/axiosInstance';
 import '../styles/Dashboard.css';
 
 const Dashboard = () => {
@@ -26,15 +27,8 @@ const Dashboard = () => {
     dispatch(fetchTasks());
     const fetchUsers = async () => {
       try {
-        const token = localStorage.getItem('accessToken');
-        const response = await fetch('http://localhost:5000/api/users', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          },
-          credentials: 'include'
-        });
-        const data = await response.json();
-        setUsers(data);
+        const response = await axiosInstance.get('/api/users');
+        setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
       }

@@ -12,8 +12,12 @@ class SocketService {
   }
 
   connect() {
+    const token = localStorage.getItem('accessToken');
     this.socket = io(SOCKET_URL, {
       withCredentials: true,
+      auth: {
+        token: token,
+      },
     });
 
     this.socket.on('connect', () => {
