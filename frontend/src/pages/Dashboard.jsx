@@ -11,7 +11,7 @@ import {
   selectFilteredTasks,
   setAssignedToMeFilter,
 } from '../redux/slices/tasksSlice';
-import { axiosInstance } from '../api/axiosInstance';
+import axiosInstance from '../api/axiosInstance';
 import '../styles/Dashboard.css';
 
 const Dashboard = () => {
