@@ -14,41 +14,26 @@ export const initializeSocket = (server) => {
     },
   });
 
-  io.use(async (socket, next) => {
-    if (socket.handshake.auth && socket.handshake.auth.token) {
-      try {
-        const decoded = verifyAccessToken(socket.handshake.auth.token);
-        const user = await User.findById(decoded.userId).select('-password');
-        if (user) {
-          socket.user = user;
-          next();
-        } else {
-          next(new Error('User not found'));
-        }
-      } catch (error) {
-        next(new Error('Authentication error: Invalid token'));
-      }
-    } else {
-      next(new Error('Authentication error: Token not provided'));
-    }
-  });
-
-  ioInstance = io; // Store the io instance
+  ioInstance = io; // Assign the created io instance to ioInstance
 
   io.on('connection', (socket) => {
+    console.log(`User connected: ${socket.id}`);
 
     socket.on('setUserId', (userId) => {
       userSocketMap[userId] = socket.id;
+      console.log(`User ${userId} mapped to socket ${socket.id}`);
+      console.log('Current userSocketMap:', userSocketMap);
     });
 
     socket.on('disconnect', () => {
-      // Remove user from map on disconnect
+      console.log(`User disconnected: ${socket.id}`);
       for (const userId in userSocketMap) {
         if (userSocketMap[userId] === socket.id) {
           delete userSocketMap[userId];
           break;
         }
       }
+      console.log('userSocketMap after disconnect:', userSocketMap);
     });
   });
 

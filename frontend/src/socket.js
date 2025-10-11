@@ -4,29 +4,25 @@ import { handleTaskCreated, handleTaskUpdated, handleTaskDeleted } from './redux
 import { addNotification } from './redux/slices/notificationsSlice';
 import { store } from './redux/store';
 
-const SOCKET_URL = import.meta.env.VITE_BACKEND_URL;
- console.log("SOCKET_URL", SOCKET_URL);
- class SocketService {
-  constructor() {
-    this.socket = null;
-  }
-
-  connect() {
-    const token = localStorage.getItem('accessToken');
-    this.socket = io(SOCKET_URL, {
-      withCredentials: true,
-      auth: {
-        token: token,
-      },
-    });
-
-    this.socket.on('connect', () => {
-      console.log('Connected to socket server');
-      const user = store.getState().auth.user;
-      if (user) {
-        this.socket.emit('setUserId', user._id);
+const SOCKET_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+    console.log("SOCKET_URL", SOCKET_URL);
+    class SocketService {
+      constructor() {
+        this.socket = null;
       }
-    });
+
+      connect() {
+        this.socket = io(SOCKET_URL, {
+          withCredentials: true,
+        });
+
+        this.socket.on('connect', () => {
+          console.log('Connected to socket server');
+          const user = store.getState().auth.user;
+          if (user) {
+            this.socket.emit('setUserId', user._id);
+          }
+        });
 
     this.socket.on('disconnect', () => {
       console.log('Disconnected from socket server');

@@ -1,5 +1,5 @@
 import Task from '../models/Task.js';
-import { emitNotificationToUser, ioInstance } from '../socket.js';
+import { emitNotificationToUser } from '../socket.js';
 
 export const getAllTasks = async (req, res) => {
   try {
@@ -48,10 +48,11 @@ export const createTask = async (req, res) => {
     }
 
     // Emit taskCreated event to all connected clients
-    ioInstance.emit('taskCreated', { task: populatedTask });
+    req.io.emit('taskCreated', { task: populatedTask });
 
     res.status(201).json(populatedTask);
   } catch (error) {
+    console.error('Error creating task:', error);
     res.status(500).json({ message: 'Server error while creating task' });
   }
 };
@@ -110,7 +111,7 @@ export const updateTask = async (req, res) => {
     }
 
     // Emit taskUpdated event to all connected clients
-    ioInstance.emit('taskUpdated', { task: updatedTask });
+    req.io.emit('taskUpdated', { task: updatedTask });
 
     res.json(updatedTask);
   } catch (error) {
