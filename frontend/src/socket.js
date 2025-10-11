@@ -5,8 +5,8 @@ import { addNotification } from './redux/slices/notificationsSlice';
 import { store } from './redux/store';
 
 const SOCKET_URL = import.meta.env.VITE_BACKEND_URL;
- 
-class SocketService {
+ console.log("SOCKET_URL", SOCKET_URL);
+ class SocketService {
   constructor() {
     this.socket = null;
   }
