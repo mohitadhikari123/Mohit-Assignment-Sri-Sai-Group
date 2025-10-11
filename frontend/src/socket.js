@@ -4,7 +4,7 @@ import { handleTaskCreated, handleTaskUpdated, handleTaskDeleted } from './redux
 import { addNotification } from './redux/slices/notificationsSlice';
 import { store } from './redux/store';
 
-const SOCKET_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
     console.log("SOCKET_URL", SOCKET_URL);
     class SocketService {
       constructor() {
