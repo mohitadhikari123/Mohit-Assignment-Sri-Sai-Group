@@ -64,9 +64,13 @@ const TaskItem = ({ task, onEdit }) => {
             </span>
           )}
         </div>
-        <p className="task-assignee">
-          Assigned to: {capitalizeWords(task.assignee.username)}
-        </p>
+        {task.assignee && (
+          <p className="task-assignee">
+            Assigned to: {capitalizeWords(task.assignee.username)}
+          </p>
+        )}
+
+
         <div className="task-actions">
           <button 
             className="task-button edit-button"
