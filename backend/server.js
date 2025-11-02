@@ -19,9 +19,14 @@ app.set('trust proxy', 1);
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: [
+    process.env.FRONTEND_URL,       // http://107.21.6.186
+    "http://107.21.6.186",          // in case env doesn't pass correctly
+    "http://localhost:5173"         // for local dev
+  ],
   credentials: true,
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 
